@@ -1,20 +1,58 @@
-﻿// CPP-Practices.cpp : Bu dosya 'main' işlevi içeriyor. Program yürütme orada başlayıp biter.
-//
+﻿#include <iostream>
 
-#include <iostream>
+class Calculator {
+public:
+    void PrintResult(float num1, char operation, float num2) {
+        std::cout << num1 << operation << num2 << '=';
+    }
 
-int main()
-{
-    std::cout << "Hello World!\n";
+    float Subtraction(float num1, float num2) {
+        return num1 - num2;
+    }
+
+    float Addition(float num1, float num2) {
+        return num1 + num2;
+    }
+
+    float Multiplication(float num1, float num2) {
+        return num1 * num2;
+    }
+
+    float Divide(float num1, float num2) {
+        return num1 / num2;
+    }
+};
+
+int main() {
+    float num1, num2;
+    char operation;
+    Calculator calc;
+
+    std::cout << "CALCULATOR\n";
+    std::cout << "------------OPERATIONS------------\n";
+    std::cout << "--Plus(+)--Minus(-)--Divide(/)--Multiplication(*)--\n";
+    std::cin >> num1 >> operation >> num2;
+
+    switch (operation) {
+    case '-':
+        calc.PrintResult(num1, operation, num2);
+        std::cout << calc.Subtraction(num1, num2);
+        break;
+    case '+':
+        calc.PrintResult(num1, operation, num2);
+        std::cout << calc.Addition(num1, num2);
+        break;
+    case '*':
+        calc.PrintResult(num1, operation, num2);
+        std::cout << calc.Multiplication(num1, num2);
+        break;
+    case '/':
+        calc.PrintResult(num1, operation, num2);
+        std::cout << calc.Divide(num1, num2);
+        break;
+    default:
+        std::cout << "Geçersiz işlem!";
+    }
+
+    return 0;
 }
-
-// Programı çalıştır: Ctrl + F5 veya Hata Ayıkla > Hata Ayıklamadan Başlat menüsü
-// Programda hata ayıkla: F5 veya Hata Ayıkla > Hata Ayıklamayı Başlat menüsü
-
-// Kullanmaya Başlama İpuçları: 
-//   1. Dosyaları eklemek/yönetmek için Çözüm Gezgini penceresini kullanın
-//   2. Kaynak denetimine bağlanmak için Takım Gezgini penceresini kullanın
-//   3. Derleme çıktısını ve diğer iletileri görmek için Çıktı penceresini kullanın
-//   4. Hataları görüntülemek için Hata Listesi penceresini kullanın
-//   5. Yeni kod dosyaları oluşturmak için Projeye Git > Yeni Öğe ekle veya varolan kod dosyalarını projeye eklemek için Proje > Var Olan Öğeyi Ekle adımlarını izleyin
-//   6. Bu projeyi daha sonra yeniden açmak için Dosya > Aç > Proje'ye gidip .sln uzantılı dosyayı seçin
